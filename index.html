@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorteo Boxer S - Grupo UMA</title>
+    <title>Sorteo Premium - Bajaj Boxer S</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -19,7 +19,6 @@
         * { box-sizing: border-box; }
         body { font-family: 'Poppins', sans-serif; background-color: var(--negro-fondo); color: var(--blanco); margin: 0; padding: 0; line-height: 1.6; text-align: center; }
 
-        /* --- UI COMPONENTES --- */
         .navbar { padding: 20px; background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, transparent 100%); }
         .uma-logo-space { font-weight: 800; font-size: 22px; letter-spacing: 4px; border: 2px solid var(--amarillo-neon); display: inline-block; padding: 5px 20px; margin-bottom: 10px; }
         .boxer-img { width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 15px 35px rgba(224, 255, 51, 0.15); border: 1px solid rgba(224, 255, 51, 0.3); margin-bottom: 20px; }
@@ -28,28 +27,29 @@
         .info-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #333; }
         .label { color: var(--amarillo-neon); font-weight: 600; font-size: 13px; text-transform: uppercase; }
 
-        /* --- BOTONES --- */
         .steps-container { padding: 0 20px 40px; }
         .btn-step { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 400px; margin: 15px auto; padding: 20px 25px; border-radius: 15px; border: none; cursor: pointer; transition: 0.3s; font-weight: 700; font-size: 16px; text-decoration: none; }
         .step-1 { background-color: var(--amarillo-neon); color: #000; }
         .step-2 { background-color: transparent; color: var(--blanco); border: 2px solid var(--amarillo-neon); }
         .step-3 { background-color: var(--verde-wa); color: #fff; }
 
-        /* --- MODALES --- */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 2000; overflow-y: auto; padding-top: 20px; }
         .modal-content-full { width: 95%; height: 90%; margin: 0 auto; display: flex; flex-direction: column; }
         .close-btn { background: #444; color: white; border: none; padding: 12px 25px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; margin-top: 10px; }
         iframe { flex-grow: 1; width: 100%; border: none; border-radius: 12px; background: white; }
 
         .aviso-pago { background: var(--negro-tarjeta); border: 2px solid var(--naranja-alerta); padding: 30px; border-radius: 20px; max-width: 450px; margin: 5vh auto; }
+        .numero-visual { background: #000; color: var(--amarillo-neon); padding: 10px; border-radius: 8px; font-size: 20px; font-weight: 800; margin: 10px 0; border: 1px dashed var(--amarillo-neon); display: block; }
         .btn-accion { background: var(--amarillo-neon); color: black; padding: 15px; width: 100%; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; font-size: 16px; margin-top: 20px; }
+        
+        .map-frame { width: 100%; height: 200px; border-radius: 10px; margin-top: 15px; border: 1px solid #444; background: #333; }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
         <div class="uma-logo-space">UMA BAJAJ</div>
-        <div style="font-size: 10px; color: #888; letter-spacing: 2px;">CONCESIONARIO AUTORIZADO</div>
+        <div style="font-size: 10px; color: #888; letter-spacing: 2px;">SAN MARCOS - SUCRE</div>
     </nav>
 
     <div class="hero">
@@ -87,30 +87,43 @@
     </div>
 
     <div id="modal-pagos" class="modal">
-        <div class="modal-content-full" style="max-width:400px; height:auto; margin:10vh auto; text-align:center;">
+        <div class="modal-content-full" style="max-width:400px; height:auto; margin:5vh auto; text-align:center;">
             <h2 style="color:var(--amarillo-neon)">MÉTODOS DE PAGO</h2>
+            
+            <div style="margin-bottom: 20px; padding: 10px; background: #222; border-radius: 10px;">
+                <span style="font-size: 11px; color: #aaa; text-transform: uppercase;">Cuenta para Transferencias</span>
+                <span class="numero-visual">3207876331</span>
+                <span style="font-size: 10px; color: var(--amarillo-neon);">Al dar clic abajo, el número se copiará solo.</span>
+            </div>
+
             <button class="btn-step" style="background:#ff007f; color:white;" onclick="confirmarRequisitoPago('Nequi')">NEQUI</button>
-            <button class="btn-step" style="background:#fdc82d; color:black;" onclick="confirmarRequisitoPago('Bancolombia')">BANCOLOMBIA (A NEQUI)</button>
-            <button class="btn-step" style="background:#ed1c24; color:white;" onclick="confirmarRequisitoPago('Daviplata')">DAVIPLATA (A NEQUI)</button>
-            <button class="btn-step" style="background:#444; color:white;" onclick="abrirModal('modal-efectivo')">EFECTIVO (SAN MARCOS)</button>
+            <button class="btn-step" style="background:#fdc82d; color:black;" onclick="confirmarRequisitoPago('Bancolombia')">BANCOLOMBIA</button>
+            <button class="btn-step" style="background:#ed1c24; color:white;" onclick="confirmarRequisitoPago('Daviplata')">DAVIPLATA</button>
+            <button class="btn-step" style="background:#444; color:white;" onclick="abrirModal('modal-efectivo')">EFECTIVO (PUNTO FÍSICO)</button>
             <button class="close-btn" onclick="cerrarModal('modal-pagos')">VOLVER</button>
         </div>
     </div>
 
     <div id="modal-efectivo" class="modal">
         <div class="aviso-pago" style="max-width: 450px; border-color: var(--amarillo-neon);">
-            <h3 style="color:var(--amarillo-neon); margin-top:0;">📍 PUNTO FÍSICO</h3>
-            <p><strong>Grupo UMA - San Marcos</strong><br>Dirección: Cl. 19 #16-159</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Grupo+UMA+Cl+19+16-159+San+Marcos+Sucre" target="_blank" style="display:block; background:#fff; color:#000; padding:15px; border-radius:10px; text-decoration:none; font-weight:bold; margin: 15px 0;">VER UBICACIÓN EN MAPA 🗺️</a>
+            <h3 style="color:var(--amarillo-neon); margin-top:0;">📍 GRUPO UMA - SAN MARCOS</h3>
+            <p>Visítanos en la <strong>Cl. 19 #16-159</strong> para pagar personalmente.</p>
+            
+            <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1971.05030232551!2d-75.1328!3d8.6605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwMzknMzcuOCJOIDc1wrAwNyc1OC4xIlc!5e0!3m2!1ses!2sco!4v1713500000000!5m2!1ses!2sco"></iframe>
+
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Cl.+19+%2316-159,+San+Marcos,+Sucre" target="_blank" style="display:block; background:#fff; color:#000; padding:15px; border-radius:10px; text-decoration:none; font-weight:bold; margin-top: 15px; font-size: 14px;">
+                ¿CÓMO LLEGAR? 🗺️
+            </a>
+
             <button class="btn-accion" onclick="cerrarModal('modal-efectivo')">ENTENDIDO</button>
         </div>
     </div>
 
     <div id="modal-requisito-pago" class="modal">
         <div class="aviso-pago">
-            <h2 style="color:var(--naranja-alerta); margin-top:0;">📋 AVISO IMPORTANTE</h2>
-            <p style="font-weight:600;">Es OBLIGATORIO enviar el comprobante de pago por WhatsApp para validar.</p>
-            <button class="btn-accion" onclick="ejecutarPagoDigital()">ENTENDIDO, PAGAR</button>
+            <h2 style="color:var(--naranja-alerta); margin-top:0;">📋 ATENCIÓN</h2>
+            <p style="font-weight:600;">Copiaremos el número por ti. Luego, abre la App de tu banco y paga.</p>
+            <button class="btn-accion" onclick="ejecutarPagoDigital()">COPIAR E IR A PAGAR</button>
             <button class="close-btn" onclick="cerrarModal('modal-requisito-pago')">CANCELAR</button>
         </div>
     </div>
@@ -118,7 +131,7 @@
     <div id="modal-aviso-wa" class="modal">
         <div class="aviso-pago" style="border-color: var(--rojo-aviso);">
             <h2 style="color:var(--rojo-aviso); margin-top:0;">⚠️ ÚLTIMO PASO</h2>
-            <p style="font-weight:600;">ADJUNTE EL COMPROBANTE DE PAGO.</p>
+            <p style="font-weight:600;">SIN EL COMPROBANTE NO PODEMOS SEPARAR TU NÚMERO.</p>
             <button class="btn-accion" style="background:var(--verde-wa); color:white;" onclick="redirigirWhatsAppFinal()">IR A WHATSAPP</button>
             <button class="close-btn" onclick="cerrarModal('modal-aviso-wa')">VOLVER</button>
         </div>
@@ -137,14 +150,27 @@
         }
 
         function ejecutarPagoDigital() {
-            navigator.clipboard.writeText(NUMERO_CUENTA);
+            const banco = datos.banco;
             const esMovil = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             
+            // Copiar al portapapeles
+            navigator.clipboard.writeText(NUMERO_CUENTA);
+            
             if (esMovil) {
-                let urlApp = (datos.banco === 'Nequi') ? "nequi://" : (datos.banco === 'Bancolombia') ? "bancolombiaapp://" : "daviplata://";
+                // Aviso de confirmación de copiado antes de saltar a la app
+                alert("✅ NÚMERO COPIADO: " + NUMERO_CUENTA + "\n\nAhora te llevaremos a " + banco + ". Si no abre automáticamente, búscala en tu celular y PEGA el número.");
+                
+                let urlApp = (banco === 'Nequi') ? "nequi://" : (banco === 'Bancolombia') ? "bancolombiaapp://" : "daviplata://";
                 window.location.href = urlApp;
+
+                // Lógica de respaldo (Fallback) si la app no abre en 2.5 seg
+                setTimeout(() => {
+                    if (!document.hidden) {
+                        alert("Paso manual necesario:\n\nNo pudimos abrir " + banco + " automáticamente. Por favor, abre la aplicación manualmente desde tu menú; el número ya está copiado.");
+                    }
+                }, 2500);
             } else {
-                alert("Número " + NUMERO_CUENTA + " copiado. Por favor paga desde tu celular.");
+                alert("💻 Número " + NUMERO_CUENTA + " copiado.\nPor favor, realiza el pago desde tu móvil.");
             }
             cerrarModal('modal-requisito-pago');
         }
@@ -152,7 +178,7 @@
         function iniciarProcesoWhatsApp() {
             let n = prompt("¿A nombre de quién?");
             if (!n) return;
-            let num = prompt("¿Qué números compró?");
+            let num = prompt("¿Qué números compraste?");
             if (!num) return;
             datos.nombre = n;
             datos.numeros = num;
@@ -160,7 +186,7 @@
         }
 
         function redirigirWhatsAppFinal() {
-            let msg = `Hola, soy ${datos.nombre}. Elegí los números: ${datos.numeros}. Adjunto mi comprobante de pago para validar.`;
+            let msg = `Hola, soy ${datos.nombre}. Compré los números: ${datos.numeros}. Adjunto el comprobante de pago.`;
             window.location.href = "https://wa.me/573207876331?text=" + encodeURIComponent(msg);
         }
     </script>
